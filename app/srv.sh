@@ -6,4 +6,4 @@ fi
 
 sed -i -e "s,DYN_ELASTICSEARCH_URL,$ELASTICSEARCH_URL,g" ./scripts/app*.js
 
-python -m SimpleHTTPServer
+python3 -m http.server 9000

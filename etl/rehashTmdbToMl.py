@@ -4,7 +4,7 @@ def rehashToMovielens(tmdbFile='tmdb.json', outFile='ml_tmdb.json'):
     f = open(tmdbFile)
     asDict = json.loads(f.read())
     mlDict = {}
-    for tmdbId, tmdbMovie in asDict.iteritems():
+    for tmdbId, tmdbMovie in asDict.items():
         try:
             tmdbId = tmdbMovie['id']
             tmdbMovie['tmdb_id'] = tmdbId;

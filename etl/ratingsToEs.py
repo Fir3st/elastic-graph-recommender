@@ -34,7 +34,7 @@ def createMovielens(es):
                 },
                 "properties": {
                     "liked_overview": {
-                        "type": "string",
+                        "type": "text",
                         "analyzer": "english",
                         "position_increment_gap": 100
                     }
