@@ -15,7 +15,7 @@ In the etl/ folder there are several Python scripts for importing movielens & TM
 
 ### Import Movielens ratings
 
-- `prepareData.sh` is a shell script for downloading the latest movielens data (ml-20m) and unpacking it to the ml-20m folder.
+- `prepareData.sh` is a shell script for downloading the latest movielens data (ml-latest-small) and unpacking it to the ml-latest-small-filtered folder.
 - `ratingsToEs.py` is a Python 2.7 script for importing movielens data into Elasticsearch
 
 ### Import TMDB movie details
@@ -78,7 +78,7 @@ Load the demo data via:
 ```
 docker exec -it elasticsearch python /etl/rehashTmdbToMl.py
 docker exec -it elasticsearch python /etl/indexMlTmdb.py http://localhost:9200 /etl/ml_tmdb.json
-docker exec -it elasticsearch python /etl/ratingsToEs.py http://localhost:9200 /etl/ml_tmdb.json /etl/ml-20m/ratings.csv
+docker exec -it elasticsearch python /etl/ratingsToEs.py http://localhost:9200 /etl/ml_tmdb.json /etl/ml-ml-latest-small-filtered/ratings.csv
 
 ```
 

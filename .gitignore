@@ -1,6 +1,6 @@
 # Data Files
-etl/ml-20m.zip
-etl/ml-20m/
+etl/ml-latest-small-filtered.zip
+etl/ml-latest-small-filtered/
 etl/*.json
 
 #JS stuff

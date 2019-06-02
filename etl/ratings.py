@@ -22,7 +22,7 @@ def movieLensRatings(movieLensPath):
             yield (int(row[0]), int(row[1]), float(row[2]), int(row[3]))
         except ValueError:
             if rowNo == 0:
-                print "Skipping CSV header"
+                print("Skipping CSV header")
             else:
                 raise
 
@@ -84,7 +84,7 @@ def bestYears(userMovies, bestCutoffPercentage=15, label='liked_years'):
 
 def allOverviewText(userMovies, label='liked_overview'):
     movieFeatures = {label: []}
-    print "Appending %s movies overview" % len(userMovies)
+    print("Appending %s movies overview" % len(userMovies))
     for movie in userMovies:
         try:
             movieFeatures[label].append(movie['overview'])
@@ -105,12 +105,12 @@ def allFeatures(moviesUserLiked, moviesUserDisliked):
     return mergeDicts(likedDescriptors, dislikedDescriptors)
 
 
-def userBaskets(mlTMDB='ml_tmdb.json',movieLensPath='ml-20m/ratings.csv', likeRating=4, dislikeRating=2, buildBasket=allFeatures):
+def userBaskets(mlTMDB='ml_tmdb.json',movieLensPath='ml-latest-small-filtered/ratings.csv', likeRating=4, dislikeRating=2, buildBasket=allFeatures):
     """ Movies a given user likes """
     import json
     movieDict = json.loads(open(mlTMDB).read())
     # Assumes sorted by user id
-    print "Building baskets"
+    print("Building baskets")
     lastUserId = -1
     moviesLiked = []
     moviesDisliked = []
@@ -124,7 +124,7 @@ def userBaskets(mlTMDB='ml_tmdb.json',movieLensPath='ml-20m/ratings.csv', likeRa
                 basket.append(movieDict[str(mlensId)])
             except KeyError:
                 skipped.add(mlensId)
-                print "Skipped %s / %s " % (len(skipped), len(allmovies))
+                print("Skipped %s / %s " % (len(skipped), len(allmovies)))
                 pass
 
     for userId, mlensId, rating, timestamp in movieLensRatings(movieLensPath):

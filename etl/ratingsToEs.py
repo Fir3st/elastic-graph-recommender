@@ -44,7 +44,7 @@ def createMovielens(es):
     es.indices.create('movielens', body=settings)
 
 
-def indexToEs(esUrl="http://localhost:9200",mlTMDB="ml_tmdb.json",mlRatings='ml-20m/ratings.csv'):
+def indexToEs(esUrl="http://localhost:9200",mlTMDB="ml_tmdb.json",mlRatings='ml-latest-small-filtered/ratings.csv'):
     from elasticsearch import Elasticsearch
     import elasticsearch.helpers
     es = Elasticsearch(esUrl, timeout=30)
@@ -54,8 +54,8 @@ def indexToEs(esUrl="http://localhost:9200",mlTMDB="ml_tmdb.json",mlRatings='ml-
 if __name__ == "__main__":
     from sys import argv
     esUrl="http://localhost:9200"
-    mlRatings='ml_tmdb.json'
-    mlRatings='ml-20m/ratings.csv'
+    mlTMDB='ml_tmdb.json'
+    mlRatings='ml-latest-small-filtered/ratings.csv'
     if len(argv) > 1:
         esUrl = argv[1]
         mlTMDB = argv[2]
